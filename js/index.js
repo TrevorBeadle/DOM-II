@@ -5,7 +5,7 @@ const nav = document.querySelector('.nav');
 const navLinks = nav.querySelectorAll('.nav-link');
 
 // nav-link event handlers
-for (let i = 0; i < navLinks.length; i++){
+for (let i = 0; i < navLinks.length; i++) {
     navLinks[i].addEventListener('mouseover', (event) => {
         event.target.style.color = 'lightgrey';
     });
@@ -40,7 +40,7 @@ contentDestination.addEventListener('mouseleave', event => {
 
 // window load event listener
 window.addEventListener('load', event => {
-    // alert('Page Has Fully Loaded');
+    alert('Page Has Fully Loaded');
 })
 
 // appending an input to the end of the nav
@@ -60,8 +60,25 @@ input.addEventListener('blur', event => {
 });
 
 
-// document event listener for logging selected text to the console
-document.addEventListener('select', event => {
-    const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
-    console.log(selection);
-})
+// selector for section images
+const sectionImages = document.querySelectorAll('section img');
+
+sectionImages.forEach(item => {
+    item.addEventListener('dblclick', event => {
+        event.target.style.display = 'none';
+    });
+});
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape'){
+        sectionImages.forEach(item => {
+            item.style.display = '';
+        });
+    }
+});
+
+document.addEventListener('keyup', event => {
+    if (event.key === 'Escape'){
+        alert(`The images have returned!`);
+    }
+});
