@@ -4,6 +4,8 @@
 const nav = document.querySelector('.nav');
 const navLinks = nav.querySelectorAll('.nav-link');
 
+
+
 // nav-link event handlers
 for (let i = 0; i < navLinks.length; i++) {
     navLinks[i].addEventListener('mouseover', (event) => {
@@ -14,6 +16,9 @@ for (let i = 0; i < navLinks.length; i++) {
     });
 }
 
+navLinks.forEach('click', event => {
+    event.preventDefault();
+})
 // content section selectors
 const contentSections = document.querySelectorAll('.content-section');
 
@@ -82,3 +87,25 @@ document.addEventListener('keyup', event => {
         alert(`The images have returned!`);
     }
 });
+
+
+// nested events
+const btn = document.querySelectorAll('.btn');
+const destination = document.querySelectorAll('.destination');
+
+destination.forEach(item => {
+    item.addEventListener('click', event => {
+        event.target.style.backgroundColor = 'lightgrey';
+    })
+})
+destination.forEach(item => {
+    item.addEventListener('mouseleave', event => {
+        event.target.style.backgroundColor = 'white';
+    })
+})
+btn.forEach(item => {
+    item.addEventListener('click', event => {
+        event.target.style.backgroundColor = 'blue';
+        event.stopPropagation();
+    })
+})
