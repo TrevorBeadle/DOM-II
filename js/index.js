@@ -1,4 +1,9 @@
 // Your code goes here
+import { gsap } from 'gsap'
+
+//GSAP animation
+gsap.from('.logo-heading', {opacity: 0, duration: 1, y: -50});
+
 
 // nav-link selectors
 const nav = document.querySelector('.nav');
